@@ -1,0 +1,1 @@
+<?php /**PATH /home/siliconcpanel/public_html/edusws.appstime.in/resources/views/external_plugin.blade.php ENDPATH**/ ?>

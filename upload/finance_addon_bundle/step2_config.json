@@ -1,0 +1,16 @@
+{
+	"is_addon": "1",
+	"addons": [{
+		"unique_identifier": "payment_gateways",
+		"title": "Payment Gateways",
+		"features": "-paypal \n-stripe \n-razorpay \n-paytm \n-flutterwave"
+	}],
+	"addon_version": {
+		"minimum_required_version": "1.0",
+		"update_version": "1.1"
+	},
+    "product_version": {
+        "minimum_required_version": "1.0",
+        "update_version": "1.1"
+    }
+}

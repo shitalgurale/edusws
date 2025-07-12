@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "in.appstime.edusws.twa",
+      "sha256_cert_fingerprints": [
+        "8A:3F:B1:16:B5:27:4D:54:7A:8C:40:89:7E:DE:BD:10:CD:5B:6D:E8:AC:80:E4:CC:20:93:AC:F6:7D:DA:E3:2A"
+      ]
+    }
+  }
+]

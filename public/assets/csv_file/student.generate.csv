@@ -1,0 +1,6 @@
+Name,BioID,Phone,BloodGroup,Gender,DateOfBirth,Address,FatherName,MotherName,AdmissionDate,Nationality,Caste
+Charika Raj,142258,6301744305,B+,Female,28-11-2015,"Nacharam, Hyderabad",Rajesh Raj,Savitri Raj,23-06-2024,Indian,BC
+Arjun Mehra,142259,9001234567,O+,Male,15-07-2014,Secunderabad,Ravi Mehra,Suman Mehra,01-07-2024,Indian,OC
+Sneha Reddy,142260,9898989898,A+,Female,03-09-2013,Malkajgiri,Satish Reddy,Anita Reddy,01-07-2024,Indian,SC
+Rohan Das,142261,9123456780,B-,Male,21-12-2012,Kukatpally,Manoj Das,Neha Das,01-07-2024,Indian,ST
+Divya Sharma,142262,9876543210,AB+,Female,10-10-2015,Begumpet,Suresh Sharma,Pooja Sharma,01-07-2024,Indian,BC

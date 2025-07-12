@@ -1,0 +1,27 @@
+RewriteEngine On
+
+# Force POST / to act like POST /index.php
+RewriteCond %{REQUEST_METHOD} POST
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^ index.php [L]
+
+# Other rules...
+<IfModule mod_setenvif.c>
+    SetEnvIfNoCase dev_id (.+) DEV_ID=$1
+    SetEnvIfNoCase request_code (.+) REQUEST_CODE=$1
+    SetEnvIfNoCase blk_no (.+) BLK_NO=$1
+    SetEnvIfNoCase blk_len (.+) BLK_LEN=$1
+    SetEnvIfNoCase trans_id (.+) TRANS_ID=$1
+    SetEnvIfNoCase cmd_return_code (.+) CMD_RETURN_CODE=$1
+</IfModule>
+
+<IfModule mod_headers.c>
+    RequestHeader set X-Dev-Id "%{DEV_ID}e" env=DEV_ID
+    RequestHeader set X-Request-Code "%{REQUEST_CODE}e" env=REQUEST_CODE
+    RequestHeader set X-Blk-No "%{BLK_NO}e" env=BLK_NO
+    RequestHeader set X-Blk-Len "%{BLK_LEN}e" env=BLK_LEN
+    RequestHeader set X-Trans-Id "%{TRANS_ID}e" env=TRANS_ID
+    RequestHeader set X-Cmd-Return-Code "%{CMD_RETURN_CODE}e" env=CMD_RETURN_CODE
+</IfModule>
+
+RewriteOptions inherit
