@@ -1,0 +1,52 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # ✅ Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # ✅ Expose custom lowercase headers to PHP
+    RewriteCond %{HTTP:request_code} ^(.+)$
+    RewriteRule .* - [E=HTTP_REQUEST_CODE:%{HTTP:request_code}]
+
+    RewriteCond %{HTTP:cmd_return_code} ^(.+)$
+    RewriteRule .* - [E=HTTP_CMD_RETURN_CODE:%{HTTP:cmd_return_code}]
+
+    RewriteCond %{HTTP:dev_id} ^(.+)$
+    RewriteRule .* - [E=HTTP_DEV_ID:%{HTTP:dev_id}]
+
+    RewriteCond %{HTTP:trans_id} ^(.+)$
+    RewriteRule .* - [E=HTTP_TRANS_ID:%{HTTP:trans_id}]
+
+    RewriteCond %{HTTP:blk_no} ^(.+)$
+    RewriteRule .* - [E=HTTP_BLK_NO:%{HTTP:blk_no}]
+
+    RewriteCond %{HTTP:blk_len} ^(.+)$
+    RewriteRule .* - [E=HTTP_BLK_LEN:%{HTTP:blk_len}]
+
+    # ✅ Redirect Trailing Slashes If Not A Folder
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # ✅ Handle Front Controller (Laravel Routing)
+    RewriteCond %{REQUEST_URI} !(\.css|\.js|\.png|\.jpg|\.gif|robots\.txt)$ [NC]
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+
+    # ✅ Rewrite static assets to public folder if needed
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(css|js|images|trainer-cv)/(.*)$ public/$1/$2 [L,NC]
+</IfModule>
+
+# ✅ PHP version (cPanel-generated, do not edit)
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php81 .php .php8 .phtml
+</IfModule>

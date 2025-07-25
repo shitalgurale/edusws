@@ -1,0 +1,16 @@
+{
+	"is_addon": "1",
+	"addons": [{
+		"unique_identifier": "sms_center",
+		"title": "Sms Center",
+		"features": "Sending sms \n-Twilio \n-MSG91"
+	}],
+	"addon_version": {
+		"minimum_required_version": "0",
+		"update_version": "1.0"
+	},
+    "product_version": {
+        "minimum_required_version": "1.6",
+        "update_version": "1.1"
+    }
+}
